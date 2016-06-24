@@ -1,0 +1,12 @@
+<fieldset>
+	<legend>Login</legend>
+	<form action="/logins" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>Email: <input name="email"></p>
+		<p>Password: <input type="password" name="password"></p>
+		<a href="/logins/new">Click Here to Register</a> <button>Login</button>
+	</form>
+	<% if flash[:errors] %>
+		<p><%= flash[:errors] %></p>
+	<% end %>
+</fieldset>

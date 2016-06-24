@@ -1,0 +1,40 @@
+
+<form action="/lenders" method="post">
+	<fieldset>
+		<legend>Lender</legend>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>First Name: <input name="lender[first_name]"></p>
+		<p>Last Name: <input name="lender[last_name]"></p>
+		<p>Email: <input type="email" name="lender[email]"></p>
+		<p>Password: <input type="password" name="lender[password]"></p>
+		<p>Password Confirmation: <input type="password" name="lender[password_confirmation]"></p>
+		<p>Money: <input type="number" name="lender[money]" value="100"></p>
+		<p><a href="/logins">Already a Member?</a> <input type="submit" value="Register">
+		<% if flash[:lender_errors] %>
+			<% flash[:lender_errors].each do |error| %>
+				<P><%= error %></P>
+			<% end %>
+		<% end %>
+	</fieldset>
+</form>
+<form action="/borrowers" method="post">
+	<fieldset>
+		<legend>Borrower</legend>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p>First Name: <input name="borrower[first_name]"></p>
+		<p>Last Name: <input name="borrower[last_name]"></p>
+		<p>Email: <input type="email" name="borrower[email]"></p>
+		<p>Password: <input type="password" name="borrower[password]"></p>
+		<p>Password Confirmation: <input type="password" name="borrower[password_confirmation]"></p>
+		<p>Need Money For: <input type="text" name="borrower[need]"></p>
+		<p>Description: <textarea name="borrower[description]"></textarea></p>
+		<p>Amount Needed: <input type="number" name="borrower[amount_needed]" value="5000"></p>
+		
+		<p><a href="/logins">Already a Member?</a> <input type="submit" value="Register"></p>
+		<% if flash[:borrower_errors] %>
+			<% flash[:borrower_errors].each do |error| %>
+				<P><%= error %></P>
+			<% end %>
+		<% end %>
+	</fieldset>
+</form>
