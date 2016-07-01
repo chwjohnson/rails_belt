@@ -1,0 +1,26 @@
+<div id="header">
+	<h1>Hi <%= session[:name] %>!</h1>
+	<a href="/sessions" data-method="delete">Logout</a>
+</div>
+
+<div id="body">
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |error| %>
+			<p><%= error %></p>
+		<% end %>
+	<% end %>
+	<form action="/posts" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<textarea name="content" placeholder="Post something witty here..."></textarea>
+		<input type="submit" value="Idea!">
+	</form>
+	<% @post.each do |post| %>
+		<p class="post"><a href="/users/<%= post[:user_id] %>"><%= post.alias %></a> says: 
+			<div class="content"><%= post.content %></div>
+			<% if session[:user_id].to_i == post.user_id %>
+				<a class="delete" data-method="delete" href="/posts/<%= post.id %>">Delete Post</a>
+			<% end %>
+		</p>
+		<p><a href="/likes/<%= post.id %>" data-method="post">Like</a> | <a href="/likes/<%= post.id %>"> <%= post.like_count %> people</a> like this.</p>
+	<% end %>
+</div>

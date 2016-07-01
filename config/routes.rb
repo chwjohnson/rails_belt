@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  get 'logins' => 'logins#index'
-  get '/logins/new' => 'logins#new'
-  post '/lenders' => 'lenders#create'
-  post '/borrowers' => 'borrowers#create'
-  get '/borrowers/:id' => 'borrowers#show'
-  get '/lenders/:id' => 'lenders#show'
-  delete 'logins/:id' => 'logins#destroy'
-  post '/logins' => 'logins#create'
-  patch '/lenders/:id/edit' => 'lenders#update'
+  post '/users' => 'users#create'
+  get '/' => 'sessions#index'
+  get '/posts' => 'posts#index'
+  get '/likes/:id' => 'likes#show'
+  get '/users/:id' => 'users#show'
+  post '/sessions' => 'sessions#create'
+  post '/posts' => 'posts#create'
+  post '/likes/:id' => 'likes#create'
+  delete '/posts/:id' => 'posts#destroy'
+  delete '/sessions' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'logins#index'
+  root 'sessions#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

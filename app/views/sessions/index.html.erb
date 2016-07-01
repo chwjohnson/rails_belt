@@ -1,0 +1,39 @@
+<h2>Welcome!</h2>
+<% if flash[:errors] %>
+	<% flash[:errors].each do |error| %>
+		<p><%= error %></p>
+	<% end %>
+<% end %>
+
+<form action="/users" method="post">
+	<fieldset>
+		<legend>Register</legend>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<p><label>Name: </label>
+		<input type="text" name="user[name]">
+		</p><p><label>Alias: </label>
+		<input type="text" name="user[alias]">
+		</p><p><label>Email: </label>
+		<input type="text" name="user[email]">
+		</p><p><label>Password: </label>
+		<input type="password" name="user[password]">
+		</p><p><label>Password Confirmation: </label>
+		<input type="password" name="user[password_confirmation]">
+		</p>
+		<input type="submit" value="Register">
+	</fieldset>
+</form>
+<% if flash[:error] %>
+	<p><%= flash[:error] %></p>
+<% end %>
+<form action="/sessions" method="post">
+	<fieldset>
+		<legend>Login</legend>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		</p><p><label>Email: </label>
+		<input type="text" name="user[email]">
+		</p><p><label>Password: </label>
+		<input type="password" name="user[password]"></p>
+		<input type="submit" value="Login">
+	</fieldset>
+</form>

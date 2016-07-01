@@ -1,0 +1,22 @@
+<% @post.each do |post| %>
+	<p id="post"><a href="/users/<%= post[:user_id] %>"><%= post.alias %></a> says: 
+		<div class="content"><%= post.content %></div>
+	</p>
+	<p class="links"><a href="/posts">Bright Ideas</a> | <a href="/sessions" data-method="delete">Logout</a></p>
+<% end %>
+<table border="1">
+	<thead>
+		<tr>
+			<th>Alias</th>
+			<th>Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @likes.each do |like| %>
+			<tr>
+				<td><a href="/users/<%= like.user_id %>"><%= like.alias %></a></td>
+				<td><%= like.name %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

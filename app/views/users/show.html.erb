@@ -1,0 +1,10 @@
+<div id="user">
+	<h3>Name: <%= @user[0].name %></h3>
+	<h3>Alias: <%= @user[0].alias %></h3>
+	<h3>Email: <%= @user[0].email %></h3>
+</div>
+
+<p class="links"><a href="/posts">Bright Ideas</a> | <a data-method="delete" href="/sessions">Logout</a></p>
+<hr>
+<h3>Total number of posts: <%= @post_total %></h3>
+<h3>Total number of likes: <%= @like_total %></h3>
