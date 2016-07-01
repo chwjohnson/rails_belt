@@ -17,8 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postmodern
+  username: ubuntu
+  password: 
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
@@ -26,7 +26,8 @@ default: &default
 development:
   <<: *default
   database: bright_ideas_development
-
+  username: ubuntu
+  password: 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -60,7 +61,8 @@ development:
 test:
   <<: *default
   database: bright_ideas_test
-
+  username: ubuntu
+  password: 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -83,5 +85,5 @@ test:
 production:
   <<: *default
   database: bright_ideas_production
-  username: bright_ideas
-  password: <%= ENV['BRIGHT_IDEAS_DATABASE_PASSWORD'] %>
+  username: ubuntu
+  password: 
