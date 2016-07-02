@@ -11,13 +11,18 @@
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<p><label>Name: </label>
 		<input type="text" name="user[name]">
-		</p><p><label>Alias: </label>
+		</p>
+		<p><label>Alias: </label>
 		<input type="text" name="user[alias]">
-		</p><p><label>Email: </label>
+		</p>
+		<p><label>Email: </label>
 		<input type="text" name="user[email]">
-		</p><p><label>Password: </label>
+		</p>
+		<p><label>Password: </label>
 		<input type="password" name="user[password]">
-		</p><p><label>Password Confirmation: </label>
+		</p>
+		<p>*Password must be at least 8 characters</p>
+		<p><label>Password Confirmation: </label>
 		<input type="password" name="user[password_confirmation]">
 		</p>
 		<input type="submit" value="Register">
@@ -30,9 +35,11 @@
 	<fieldset>
 		<legend>Login</legend>
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-		</p><p><label>Email: </label>
+		</p>
+		<p><label>Email: </label>
 		<input type="text" name="user[email]">
-		</p><p><label>Password: </label>
+		</p>
+		<p><label>Password: </label>
 		<input type="password" name="user[password]"></p>
 		<input type="submit" value="Login">
 	</fieldset>
